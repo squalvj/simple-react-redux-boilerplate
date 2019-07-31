@@ -1,3 +1,7 @@
+import {
+   makeActionCreator
+} from 'utils'
+
 const INITIAL_STATE = {
    users: []
 }
@@ -8,22 +12,20 @@ function handleAddUser(state, payload){
    }
 }
 
+function handleSetUser(state, payload){
+   return {
+      users: [...state.users, payload.user]
+   }
+}
+
 const CONSTANT = {
-   ADD_USER: 'USER/ADD_USER'
+   ADD_USER: 'USER/ADD_USER',
+   SET_USER: 'USER/SET_USER'
 }
 
 const ACTION = {
-   'USER/ADD_USER': handleAddUser
-}
-
-function makeActionCreator(type, ...argNames) {
-   return function(...args) {
-     const action = { type }
-     argNames.forEach((arg, index) => {
-       action[argNames[index]] = args[index]
-     })
-     return action
-   }
+   'USER/ADD_USER': handleAddUser,
+   'USER/SET_USER': handleSetUser
 }
 
 export const setUser = makeActionCreator(ACTION.SET_USER, 'user')
