@@ -21,25 +21,26 @@ export default class Home extends Component {
    render() {
       const {
          addTheUser,
-         setTheUser,
-         users
+         users,
+         deleteAllUser
       } = this.props
+      const {
+         input
+      } = this.state
       return (
         <div className="container">
-           <br />
-           <button onClick={() => addTheUser({
-              name: 'test',
-              id: 100
-           })} >
-              Add user
-           </button>
-           <br />
-           <button onClick={() => setTheUser({
-              name: 'test change',
-              id: 100
-           })} >
-              Set User
-           </button>
+           <div className="wrapper-input">
+            <input type="text" onChange={e => this.setState({input: e.target.value})} value={input} />
+            <button onClick={() => addTheUser({
+               name: input,
+               id: Math.random()
+            })} >
+               Add user
+            </button>
+            <button onClick={deleteAllUser} >
+               Delete All User
+            </button>
+           </div>
 
            <ul>
               {

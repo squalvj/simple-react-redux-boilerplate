@@ -1,7 +1,8 @@
 import { connect } from 'react-redux'
 import {
    addUser,
-   setUser
+   setUser,
+   deleteAllUser
 } from 'reducers/User'
 import Home from './component/Home'
 
@@ -18,6 +19,9 @@ const mapDispatchToProps = dispatch => {
       },
       setTheUser: user => {
          dispatch(setUser(user))
+      },
+      deleteAllUser: () => {
+         dispatch(deleteAllUser())
       }
    }
  }

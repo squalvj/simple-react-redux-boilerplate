@@ -18,6 +18,13 @@ function handleAddUser(state, payload){
    }
 }
 
+function handleDeleteAllUser(state, payload){
+   return {
+      ...state,
+      users: []
+   }
+}
+
 function handleSetUser(state, payload){
    const {
       user
@@ -41,10 +48,12 @@ function handleSetUser(state, payload){
 const ACTION = {
    ADD_USER: handleAddUser,
    SET_USER: handleSetUser,
+   DELETE_ALL_USER: handleDeleteAllUser
 }
 
 export const setUser = makeActionCreator(injectPrefix('SET_USER'), 'user')
 export const addUser = makeActionCreator(injectPrefix('ADD_USER'), 'user')
+export const deleteAllUser = makeActionCreator(injectPrefix('DELETE_ALL_USER'))
 
 export default function users(state = INITIAL_STATE, action) {
    const typeWithoutPrefix = (action.type && action.type.split('/')[1])
