@@ -19,10 +19,15 @@ export default class Home extends Component {
    }
 
    render() {
-
+      const {
+         setTheUser
+      } = this.props
       return (
         <div className="container">
            This is Home
+           <button onClick={() => setTheUser('tot')} >
+              wow
+           </button>
         </div>
       )
    }

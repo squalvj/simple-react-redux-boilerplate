@@ -2,9 +2,18 @@ const INITIAL_STATE = {
    users: []
 }
 
+function handleAddUser(state, payload){
+   return {
+      users: [...state.users, payload.user]
+   }
+}
+
+const CONSTANT = {
+   ADD_USER: 'USER/ADD_USER'
+}
+
 const ACTION = {
-   GET_USERS: 'USER/GET_USER',
-   SET_USER: 'USER/SET_USER'
+   'USER/ADD_USER': handleAddUser
 }
 
 function makeActionCreator(type, ...argNames) {
@@ -17,7 +26,8 @@ function makeActionCreator(type, ...argNames) {
    }
 }
 
-export const setUser = makeActionCreator(ACTION.GET_USERS, 'user')
+export const setUser = makeActionCreator(ACTION.SET_USER, 'user')
+export const addUser = makeActionCreator(CONSTANT.ADD_USER, 'user')
 
 export default function users(state = INITIAL_STATE, action) {
    const handler = ACTION[action.type];
