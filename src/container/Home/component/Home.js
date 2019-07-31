@@ -7,7 +7,7 @@ export default class Home extends Component {
    constructor(props) {
       super(props);
       this.state = {
-         
+         input: ''
       };
    }
    componentDidMount() {
@@ -26,7 +26,6 @@ export default class Home extends Component {
       } = this.props
       return (
         <div className="container">
-           This is Home
            <br />
            <button onClick={() => addTheUser({
               name: 'test',

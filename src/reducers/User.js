@@ -35,12 +35,13 @@ function handleSetUser(state, payload){
 
 const CONSTANT = {
    ADD_USER: 'USER/ADD_USER',
-   SET_USER: 'USER/SET_USER'
+   SET_USER: 'USER/SET_USER',
+   RESET_STATE: 'USER/RESET_STATE'
 }
 
 const ACTION = {
    'USER/ADD_USER': handleAddUser,
-   'USER/SET_USER': handleSetUser
+   'USER/SET_USER': handleSetUser,
 }
 
 export const setUser = makeActionCreator(CONSTANT.SET_USER, 'user')
@@ -48,6 +49,6 @@ export const addUser = makeActionCreator(CONSTANT.ADD_USER, 'user')
 
 export default function users(state = INITIAL_STATE, action) {
    const handler = ACTION[action.type];
-   state = action.type === ACTION.RESET_STATE ? INITIAL_STATE : state;
+   state = action.type === CONSTANT.RESET_STATE ? INITIAL_STATE : state;
    return handler ? handler(state, action) : state;
 }
