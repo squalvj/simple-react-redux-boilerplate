@@ -6,6 +6,11 @@ const INITIAL_STATE = {
    users: [],
 }
 
+const prefix = 'USER/';
+const injectPrefix = name => {
+   return `${prefix}${name}`
+}
+
 function handleAddUser(state, payload){
    return {
       ...state,
@@ -33,22 +38,17 @@ function handleSetUser(state, payload){
    }
 }
 
-const CONSTANT = {
-   ADD_USER: 'USER/ADD_USER',
-   SET_USER: 'USER/SET_USER',
-   RESET_STATE: 'USER/RESET_STATE'
-}
-
 const ACTION = {
-   'USER/ADD_USER': handleAddUser,
-   'USER/SET_USER': handleSetUser,
+   ADD_USER: handleAddUser,
+   SET_USER: handleSetUser,
 }
 
-export const setUser = makeActionCreator(CONSTANT.SET_USER, 'user')
-export const addUser = makeActionCreator(CONSTANT.ADD_USER, 'user')
+export const setUser = makeActionCreator(injectPrefix('SET_USER'), 'user')
+export const addUser = makeActionCreator(injectPrefix('ADD_USER'), 'user')
 
 export default function users(state = INITIAL_STATE, action) {
-   const handler = ACTION[action.type];
-   state = action.type === CONSTANT.RESET_STATE ? INITIAL_STATE : state;
+   const typeWithoutPrefix = (action.type && action.type.split('/')[1])
+   const handler = ACTION[typeWithoutPrefix];
+   state = action.type === ACTION.RESET_STATE ? INITIAL_STATE : state;
    return handler ? handler(state, action) : state;
 }
