@@ -3,18 +3,34 @@ import {
 } from 'utils'
 
 const INITIAL_STATE = {
-   users: []
+   users: [],
+   kocak: 'wow'
 }
 
 function handleAddUser(state, payload){
    return {
+      ...state,
       users: [...state.users, payload.user]
    }
 }
 
 function handleSetUser(state, payload){
+   const {
+      user
+   } = payload
+   const {
+      id,
+      name
+   } = user
+   const userChanged = state.users.map(e => {
+      if (e.id === id) {
+         return { ...e, name: name }
+       }
+       return e
+   })
    return {
-      users: [...state.users, payload.user]
+      ...state,
+      users: userChanged
    }
 }
 
@@ -28,7 +44,7 @@ const ACTION = {
    'USER/SET_USER': handleSetUser
 }
 
-export const setUser = makeActionCreator(ACTION.SET_USER, 'user')
+export const setUser = makeActionCreator(CONSTANT.SET_USER, 'user')
 export const addUser = makeActionCreator(CONSTANT.ADD_USER, 'user')
 
 export default function users(state = INITIAL_STATE, action) {

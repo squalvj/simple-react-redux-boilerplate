@@ -20,13 +20,23 @@ export default class Home extends Component {
 
    render() {
       const {
+         addTheUser,
          setTheUser
       } = this.props
       return (
         <div className="container">
            This is Home
-           <button onClick={() => setTheUser('tot')} >
+           <button onClick={() => addTheUser({
+              name: 'test',
+              id: 100
+           })} >
               wow
+           </button>
+           <button onClick={() => setTheUser({
+              name: 'test change',
+              id: 100
+           })} >
+              set
            </button>
         </div>
       )
