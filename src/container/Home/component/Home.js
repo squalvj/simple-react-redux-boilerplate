@@ -22,7 +22,8 @@ export default class Home extends Component {
       const {
          addTheUser,
          users,
-         deleteAllUser
+         deleteAllUser,
+         toggleStrike
       } = this.props
       const {
          input
@@ -30,11 +31,18 @@ export default class Home extends Component {
       return (
         <div className="container">
            <div className="wrapper-input">
-            <input type="text" onChange={e => this.setState({input: e.target.value})} value={input} />
-            <button onClick={() => addTheUser({
-               name: input,
-               id: Math.random()
-            })} >
+            <input placeholder="Name..." type="text" onChange={e => this.setState({input: e.target.value})} value={input} />
+            <button 
+               onClick={() => {
+                  this.setState({
+                     input: ''
+                  })
+                  addTheUser({
+                     name: input,
+                     id: Math.random()
+                  })
+               }
+            }>
                Add user
             </button>
             <button onClick={deleteAllUser} >
@@ -42,10 +50,10 @@ export default class Home extends Component {
             </button>
            </div>
 
-           <ul>
+           <ul className="list">
               {
                  users.map((e, i) => (
-                    <li key={i}>
+                    <li onClick={() => toggleStrike(e.id)} className={e.done ? 'strike' : ''} key={i}>
                        {e.name}
                     </li>
                  ))
