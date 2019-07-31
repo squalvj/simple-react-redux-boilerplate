@@ -66,6 +66,9 @@ Running the project is easy like snapping your finger.
 
 
 Feel free to contact me if anything happen on squalvj@gmail.com
+<br />
 Medium: [https://medium.com/@squalvj](https://medium.com/@squalvj)
+<br />
 Github: [https://github.com/squalvj](https://github.com/squalvj)
+<br />
 Codepen: [https://codepen.io/squalvj/](https://codepen.io/squalvj/)
