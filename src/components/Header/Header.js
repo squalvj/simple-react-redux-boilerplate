@@ -9,7 +9,7 @@ export default class Header extends Component {
                <Link className="logo no-underline" to={{
                   url: '/'
                }}>
-                  GIFt'ed
+                  React Redux Boilerplate
                </Link>
                <img alt="cool cat" className="header-pic" src={require('styles/img/nyan.gif')} />
             </div>
