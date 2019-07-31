@@ -36,4 +36,3 @@ const HomeContainer = connect(
 )(Home)
 
 export default HomeContainer
-// SOMETIMES IF WE USE REDUX, THIS FILE WILL BE USED TO CONNECTING REDUX STATE
