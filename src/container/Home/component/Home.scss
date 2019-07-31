@@ -1,0 +1,63 @@
+@import '~styles/css/color';
+
+.wrapper-form {
+   input {
+      flex: 10;
+      border: 5px solid $color-black;
+      border-right: none;
+      padding: 15px;
+      font-size: 18px;
+      letter-spacing: 2px;
+   }
+   button {
+      position: relative;
+      &:first-of-type {
+         &:after {
+            content: '';
+            position: absolute;
+            right: -5px;
+            width: 1px;
+            height: calc(100% + 10px);
+            top: -5px;
+            background: white;
+         }
+      }
+   }
+}
+
+.wrapper-isotope {
+   display: grid;
+   grid-gap: 10px;
+   grid-template-columns: repeat(auto-fill, minmax(250px,1fr));
+   padding: 10px 0 30px;
+}
+
+.wrapper-single-gif {
+   .wrapper-gif-player .gif_player img {
+      min-height: 600px;
+   }
+   padding: 30px 200px;
+}
+
+@media (max-width: 576px) {
+   .wrapper-form {
+      flex-wrap: wrap;
+      flex-direction: column;
+   }
+
+   .wrapper-form {
+      input {
+         border-right: 5px solid black;
+         flex: unset;
+         margin-bottom: 10px;
+      }
+      button {
+         border: 5px solid black !important;
+         margin-bottom: 10px;
+         padding: 15px;
+         &:after {
+            display: none;
+         }
+      }
+   }
+}

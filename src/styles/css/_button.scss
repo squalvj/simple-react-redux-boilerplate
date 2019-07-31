@@ -1,0 +1,18 @@
+@import 'color';
+
+.btn {
+   border: none;
+   font-size: 14px;
+   letter-spacing: 3px;
+   transition: .25s all ease;
+   &.black {
+      background: $color-black;
+      color: white;
+      border: 5px solid $color-black;
+      &:hover {
+         background: white;
+         color: $color-black;
+         border: 5px solid $color-black;
+      }
+   }
+}

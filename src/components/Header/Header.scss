@@ -1,0 +1,121 @@
+@import '~styles/css/variable';
+
+#header {
+   padding: 30px;
+   .header-wrapper {
+      align-items: center;
+      justify-content: center;
+   }
+   .header-pic {
+      height: 100px;
+   }
+   .logo {
+      position: relative;
+      font-size: 30px; 
+      font-weight: 700;
+      text-transform: uppercase;
+      animation: blink 1.3s infinite steps(1);
+      font-family: $lucky;
+      letter-spacing: 5px;
+      font-weight: normal;
+      &:before, &:after {
+         content: "GIFt'ed";
+         position: absolute; 
+         top: -1px; 
+         left: 0;
+         mix-blend-mode: soft-light;
+         animation: dance 2s infinite steps(2);
+      }
+      
+      &:before {
+         clip-path: polygon(0 0, 100% 0, 100% 50%, 0 50%);
+         color: magenta;
+         animation: shiftright 2s steps(2) infinite;
+      }
+      &:after {
+         clip-path: polygon(0 100%, 100% 100%, 100% 50%, 0 50%);
+         color: cyan;
+         animation: shiftleft 2s steps(2) infinite;
+      }
+   }
+}
+
+@keyframes dance {
+   0%{
+      transform: skew(0deg);
+   }
+   84%{
+      transform: skew(0deg);
+   }
+   94% {
+      transform: skew(0deg);
+   }
+      
+   85% {
+      transform: skew(5deg);
+   }
+   90% {
+      transform: skew(-5deg);
+   }
+   98% {
+      transform: skew(3deg);
+   }
+}
+
+@keyframes shiftleft {
+   0% {
+      transform: translate(0,0) skew(0deg);
+   }
+   87% {
+      transform: translate(0,0) skew(0deg);
+   }
+   100% {
+      transform: translate(0,0) skew(0deg);
+   }
+   84% {
+      transform: translate(-8px,0) skew(20deg);
+   } 
+   90% {
+      transform: translate(-8px,0) skew(20deg);
+   }
+
+}
+
+@keyframes shiftright {
+   0% {
+      transform: translate(0,0) skew(0deg);
+   }
+   87%{ 
+      transform: translate(0,0) skew(0deg);
+   }
+   100% {
+      transform: translate(0,0) skew(0deg);
+   }
+   84%{
+      transform: translate(8px,0) skew(20deg);
+   }
+   90% {
+      transform: translate(8px,0) skew(20deg);
+   }
+}
+
+@keyframes blink {
+   0%{
+      color: #000;
+   } 
+   50%{
+      color: #000;
+   } 
+   85%{
+      color: #000;
+   }
+   100% {
+      color: #000;
+   }
+   87%{
+      color: transparent;
+   } 
+   95% {
+      color: transparent;
+   }
+}
