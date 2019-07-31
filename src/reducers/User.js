@@ -4,7 +4,6 @@ import {
 
 const INITIAL_STATE = {
    users: [],
-   kocak: 'wow'
 }
 
 function handleAddUser(state, payload){

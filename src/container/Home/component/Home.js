@@ -21,23 +21,36 @@ export default class Home extends Component {
    render() {
       const {
          addTheUser,
-         setTheUser
+         setTheUser,
+         users
       } = this.props
       return (
         <div className="container">
            This is Home
+           <br />
            <button onClick={() => addTheUser({
               name: 'test',
               id: 100
            })} >
-              wow
+              Add user
            </button>
+           <br />
            <button onClick={() => setTheUser({
               name: 'test change',
               id: 100
            })} >
-              set
+              Set User
            </button>
+
+           <ul>
+              {
+                 users.map((e, i) => (
+                    <li key={i}>
+                       {e.name}
+                    </li>
+                 ))
+              }
+           </ul>
         </div>
       )
    }
